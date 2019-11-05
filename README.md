@@ -41,6 +41,12 @@ DB_PASSWORD=
 ````html
 php artisan migrate
 ````
+
+## Install Passport 
+
+````html
+php artisan passport:install
+````
  
 ## Serve the app
 ````html
@@ -58,6 +64,40 @@ Input field will be name, email, password and c_password
 http://127.0.0.1:8000/api/register
 ````
 
+For Login (POST API)
+
+Field will be email and password.
+
+````html
+http://127.0.0.1:8000/api/login
+````
+
+For depositing Amount (POST API)
+
+Field will be from_account_no and deposit.
+
+````html
+http://127.0.0.1:8000/api/deposit 
+````
+
+For Transfering Balance (POST API)
+
+Field will be from_account_no and to_account_no and withdraw.
+
+````html
+http://127.0.0.1:8000/api/transfer
+````
+
+
+For Checking Balance (POST API)
+
+Field will be account_no.
+
+````html
+http://127.0.0.1:8000/api/get-balance
+````
+
+We have to use Bearer Token to get after login.
 
 
 
