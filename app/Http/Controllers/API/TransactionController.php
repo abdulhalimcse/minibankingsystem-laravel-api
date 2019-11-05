@@ -90,7 +90,7 @@ class TransactionController extends BaseController
 		$currentBalanceBeforeSaveFromAccount = Account::getCurrentBalance($input['from_account_no']);
 		
 		if(isset($currentBalanceBeforeSaveFromAccount) && isset($input['withdraw']) && $currentBalanceBeforeSaveFromAccount < $input['withdraw']) {
-			return $this->sendError('Not Sufficient.', ['error'=>'Your Account balance is not sufficient.']);
+			return $this->sendError('Not Sufficient.', ['error'=>'Your Account balance is insufficient.']);
 		}
    
        
