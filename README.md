@@ -6,7 +6,7 @@
 ````
 
 ````html
-cd minibankingsystem-laravel-api
+cd minibankingsystem-laravel-api/
 
 ````
 
@@ -15,3 +15,8 @@ cd minibankingsystem-laravel-api
 ````html
 cp .env.example .env
 ````
+
+````html
+composer update
+````
+
