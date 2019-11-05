@@ -72,7 +72,7 @@ Field will be email and password.
 http://127.0.0.1:8000/api/login
 ````
 
-For Upading Profile (POST API)
+## For Upading Profile (POST API) - Account will be active after updating profile infos.
 
 Field will be img, national_id, contact_no, country_id, city_id, present_address and permenent_address.
 
