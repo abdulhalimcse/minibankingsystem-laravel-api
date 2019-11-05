@@ -17,6 +17,7 @@ Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
    
 Route::middleware('auth:api')->group( function () {
+    Route::post('update-profile', 'API\ProfileController@update');
     Route::post('deposit', 'API\TransactionController@store');
     Route::post('transfer', 'API\TransactionController@transfer');
     Route::post('get-balance', 'API\AccountController@getBalance');
