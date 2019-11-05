@@ -1,10 +1,12 @@
 # MiniBank Online Management System(MBS)
 ## Clone the app
 
-clone from git and go to the folder using
+````html
+ git clone https://github.com/abdulhalimcse/minibankingsystem-laravel-api.git
+````
 
 ````html
-cd foldername(minibankingsystem-laravel-api)
+cd minibankingsystem-laravel-api
 
 ````
 
