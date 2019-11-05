@@ -21,12 +21,16 @@ class RegisterController extends BaseController
      */
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $messages = [
+            'password.regex' => 'Password must contain at least one number, one special characters and both uppercase and lowercase letters'
+        ];
+		
+		$validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:users|max:50',
-            'password' => 'required',
+            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
             'c_password' => 'required|same:password',
-        ]);
+        ], $messages);
    
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
