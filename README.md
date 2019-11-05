@@ -72,6 +72,8 @@ Field will be email and password.
 http://127.0.0.1:8000/api/login
 ````
 
+## We have to use Bearer Token to get after login.
+
 For depositing Amount (POST API)
 
 Field will be from_account_no and deposit.
@@ -97,7 +99,7 @@ Field will be account_no.
 http://127.0.0.1:8000/api/get-balance
 ````
 
-We have to use Bearer Token to get after login.
+
 
 
 
