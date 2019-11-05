@@ -14,16 +14,6 @@ use App\Http\Resources\Account as AccountResource;
 
 class TransactionController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -62,7 +52,8 @@ class TransactionController extends BaseController
 					'balance' => $currentBalanceBeforeSave, 
 					'deposit' => $input['deposit'],
 					'current_balance' => $currentBalance,
-					'created_by' => $user->id 
+					'created_by' => $user->id, 
+					'status' => 3 
 				]
 			);
 			
@@ -118,7 +109,8 @@ class TransactionController extends BaseController
 						'balance' => $currentBalanceBeforeSave, 
 						'deposit' => $input['withdraw'],  // DEPOSIT FOR TO ACCOUNT 
 						'current_balance' => $currentBalance,
-						'created_by' => $user->id 
+						'created_by' => $user->id,
+						'status' => 3 	
 					]
 				);
 				
@@ -138,7 +130,8 @@ class TransactionController extends BaseController
 						'balance' => $currentBalanceBeforeSave, 
 						'withdraw' => $input['withdraw'], // WITHDRAW = IT WILL BE WITHDRAW FOR TRANSFER 
 						'current_balance' => $currentBalance,
-						'created_by' => $user->id 
+						'created_by' => $user->id,
+						'status' => 3 	
 					]
 				);
 				
