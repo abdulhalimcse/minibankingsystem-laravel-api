@@ -42,4 +42,23 @@ DB_PASSWORD=
 php artisan migrate
 ````
  
+## Serve the app
+````html
+php artisan serve
+````
+
+
+## API Details
+
+For Registration (POST API)
+
+Input field will be name, email, password and c_password 
+
+````html
+http://127.0.0.1:8000/api/register
+````
+
+
+
+
 
