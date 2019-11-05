@@ -24,8 +24,23 @@ class ProfileController extends BaseController
         $input = $request->all();
    
         $validator = Validator::make($input, [
-            'national_id' => 'required|digits:10',
-            'contact_no' => 'nullable|digits:11',
+            'national_id' => [
+				'required',
+				function ($attribute, $value, $fail) {
+					if (strlen($value) != 10 && strlen($value) != 13 && strlen($value) != 17) {
+						$fail($attribute.' must be 10 or 13 or 17 digits.');
+					}
+				},
+			],
+            'contact_no' => [
+				'nullable',
+				'digits:11',
+				function ($attribute, $value, $fail) {
+					if ($value[0] != 0 ||  $value[1] != 1) {
+						$fail($attribute.' is invalid.');
+					}
+				},
+			],
             'country_id' => 'required',
             'city_id' => 'required',
             'present_address' => 'required',
@@ -35,6 +50,14 @@ class ProfileController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
+		
+		if(isset($input['national_id']) && Profile::isProfileNationalIdExists($input['national_id'])) {
+			return $this->sendError('National ID is exists.', $validator->errors());     
+		}
+		
+		if(isset($input['contact_no']) && Profile::isProfileContactNoExists($input['contact_no'])) {
+			return $this->sendError('Contact No is exists.', $validator->errors());     
+		}
 		
 		DB::transaction(function () use ($input) {
 			
